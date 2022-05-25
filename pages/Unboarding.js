@@ -10,11 +10,15 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import MaskedView from "@react-native-masked-view/masked-view";
 import Carousel, { Pagination } from "react-native-snap-carousel";
+
+// to track start up time
+import { StartupTime } from "react-native-startup-time";
+
 /**
  * Unboarding
  * figma page names : figma page names : Onboarding 01,Onboarding 02,Onboarding 03,Onboarding 04,Onboarding 05
@@ -27,36 +31,31 @@ export default class Unboarding extends React.Component {
         img: require("./../assets/slider/healthy.png"), //slide image | type : image
         titlel: "Be", //slide small title | type : string
         title: "Healthy", //slide title | type : string
-        info:
-          "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.", //slide info | type : string
+        info: "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.", //slide info | type : string
       },
       {
         img: require("./../assets/slider/ontime.png"),
         titlel: "Be",
         title: "Ontime",
-        info:
-          "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
+        info: "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
       },
       {
         img: require("./../assets/slider/strong.png"),
         titlel: "Be",
         title: "Strong",
-        info:
-          "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
+        info: "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
       },
       {
         img: require("./../assets/slider/competitive.png"),
         titlel: "Be",
         title: "Competitive",
-        info:
-          "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
+        info: "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
       },
       {
         img: require("./../assets/slider/befit.png"),
         titlel: "Be",
         title: "Fit!",
-        info:
-          "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
+        info: "Health meaning of health has evolved over time. In keeping with the biomedical perspective, early definitions of health.",
       },
     ],
     activeSlide: 0, //active slider slide
@@ -114,6 +113,9 @@ export default class Unboarding extends React.Component {
         style={styles.bg}
         resizeMode="cover"
       >
+        <StartupTime
+          style={{ marginTop: 100, zIndex: 500, position: "absolute" }}
+        />
         <SafeAreaView style={styles.container}>
           <ScrollView
             style={styles.container2}

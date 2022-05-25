@@ -5739,6 +5739,11 @@ react-native-snap-carousel@^3.9.1:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
 
+react-native-startup-time@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-startup-time/-/react-native-startup-time-2.0.0.tgz#37e2713f37b1ea99cc5680b76f77ab7ac5ceb196"
+  integrity sha512-tYruEDvwoVEOf+FMTTqp3aHNfA5ARWXXV+ar4wJBIQBdIlPEYDQWaYljOAV2dITuTsKAyPY2Q/N58gkKvGWIrA==
+
 react-native-svg@12.3.0:
   version "12.3.0"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-12.3.0.tgz#40f657c5d1ee366df23f3ec8dae76fd276b86248"
