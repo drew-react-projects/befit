@@ -1,62 +1,104 @@
-import React from "react";
-import AppLoading from "expo-app-loading";
-import * as Font from "expo-font";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { enableScreens } from "react-native-screens";
+import * as Font from "expo-font";
+import React from "react";
+import { Text } from "react-native";
 import {
-  SafeAreaProvider,
   initialWindowMetrics,
+  SafeAreaProvider,
 } from "react-native-safe-area-context";
-import Home from "./pages/Home";
-import Club from "./pages/Club";
-import Stories from "./pages/Stories";
-import Clubmap from "./pages/Clubmap";
-import Cycling from "./pages/Cycling";
-import Congratulation from "./pages/Congratulation";
-import Resault from "./pages/Resault";
-import Unboarding from "./pages/Unboarding";
-import Weight from "./pages/Weight";
-import Height from "./pages/Height";
-import Name from "./pages/Name";
-import Challenges from "./pages/Challenges";
-import Today from "./pages/Today";
-import Workout from "./pages/Workout";
-import Profile from "./pages/Profile";
-import NavigationTab from "./components/NavigationTab";
-/**
- * app.js
- * ? how can I find a page from Figma ? in the page list below I indicated the page names related to each screen
- * page lists :
- * - <Home/> : home page / figma page names : Home,Side Menu
- * - <Club/> : club page / figma page names : Club
- * - <Stories/> : stories page / figma page names : Stories
- * - <Clubmap/> : clubmap page / figma page names : Club Map (3 pages),
- * - <Cycling/> : cycling page / figma page names : Start Cycling,While Cycling,Stop Cycling (2 pages)
- * - <Congratulation/> : congratulation page / figma page names : congratulations
- * - <Resault/> : Resault page / figma page names : Finished Cycling
- * - <Unboarding/> : Unboarding page / figma page names : Onboarding 01,Onboarding 02,Onboarding 03,Onboarding 04,Onboarding 05
- * - <Weight/> : Weight page / figma page names : Weight
- * - <Height/> : Height page / figma page names : Height
- * - <Name/> : Name page / figma page names : Name,Name - Active,Birthday,Birthday - Active
- * - <Challenges/> : Challenges page / figma page names : Challenges
- * - <Today/> : Today page / figma page names : Today
- * - <Workout/> : Workout page / figma page names : Workout(2 pages)
- * - <Profile/> : Profile page / figma page names : My Profile,Profile - Others,Profile - Others - Stories
- */
-/* active screens for better performance in production */
+import { enableScreens } from "react-native-screens";
+import Loading from "./Loading";
+import Loadable from "react-loadable";
+
+// const AppLoading = React.lazy(() => import("expo-app-loading"));
+// const Challenges = React.lazy(() => import("./pages/Challenges"));
+// const Club = React.lazy(() => import("./pages/Club"));
+// const Clubmap = React.lazy(() => import("./pages/Clubmap"));
+// const Congratulation = React.lazy(() => import("./pages/Congratulation"));
+// const Cycling = React.lazy(() => import("./pages/Cycling"));
+// const Height = React.lazy(() => import("./pages/Height"));
+// const Home = React.lazy(() => import("./pages/Home"));
+// const Name = React.lazy(() => import("./pages/Name"));
+// const Profile = React.lazy(() => import("./pages/Profile"));
+// const Resault = React.lazy(() => import("./pages/Resault"));
+// const Stories = React.lazy(() => import("./pages/Stories"));
+// const Today = React.lazy(() => import("./pages/Today"));
+// const Unboarding = React.lazy(() => import("./pages/Unboarding"));
+// const Weight = React.lazy(() => import("./pages/Weight"));
+// const Workout = React.lazy(() => import("./pages/Workout"));
+
+const AppLoading = Loadable({
+  loader: () => import("expo-app-loading"),
+  loading: Loading,
+});
+
+const Challenges = Loadable({
+  loader: () => import("./pages/Challenges"),
+  loading: Loading,
+});
+
+const Club = Loadable({
+  loader: () => import("./pages/Club"),
+  loading: Loading,
+});
+const Clubmap = Loadable({
+  loader: () => import("./pages/Clubmap"),
+  loading: Loading,
+});
+const Congratulation = Loadable({
+  loader: () => import("./pages/Congratulation"),
+  loading: Loading,
+});
+const Cycling = Loadable({
+  loader: () => import("./pages/Cycling"),
+  loading: Loading,
+});
+const Height = Loadable({
+  loader: () => import("./pages/Height"),
+  loading: Loading,
+});
+const Home = Loadable({
+  loader: () => import("./pages/Home"),
+  loading: Loading,
+});
+const Name = Loadable({
+  loader: () => import("./pages/Name"),
+  loading: Loading,
+});
+const Profile = Loadable({
+  loader: () => import("./pages/Profile"),
+  loading: Loading,
+});
+const Resault = Loadable({
+  loader: () => import("./pages/Resault"),
+  loading: Loading,
+});
+const Stories = Loadable({
+  loader: () => import("./pages/Stories"),
+  loading: Loading,
+});
+const Today = Loadable({
+  loader: () => import("./pages/Today"),
+  loading: Loading,
+});
+const Unboarding = Loadable({
+  loader: () => import("./pages/Unboarding"),
+  loading: Loading,
+});
+const Weight = Loadable({
+  loader: () => import("./pages/Weight"),
+  loading: Loading,
+});
+const Workout = Loadable({
+  loader: () => import("./pages/Workout"),
+  loading: Loading,
+});
+
 enableScreens();
+
 const UnboardingStack = createStackNavigator();
-/**
- * Unboardingnavigator
- * Unboarding stack Navigator
- * include :
- * - <Unboarding/> : Unboarding page / figma page names : Onboarding 01,Onboarding 02,Onboarding 03,Onboarding 04,Onboarding 05
- * - <Name/> : Name page / figma page names : Name,Name - Active,Birthday,Birthday - Active
- * - <Weight/> : Weight page / figma page names : Weight
- * - <Height/> : Height page / figma page names : Height
- */
 function Unboardingnavigator() {
   return (
     <UnboardingStack.Navigator headerMode="none" initialRouteName="Unboarding">
@@ -67,18 +109,8 @@ function Unboardingnavigator() {
     </UnboardingStack.Navigator>
   );
 }
+
 const ClubStack = createStackNavigator();
-/**
- * Clubnavigator
- * Club stack Navigator
- * include :
- * - <Club/> : club page / figma page names : Club,Stories
- * - <Stories/> : stories page / figma page names : Stories
- * - <Clubmap/> : clubmap page / figma page names : Club Map (3 pages),
- * - <Cycling/> : cycling page / figma page names : Start Cycling,While Cycling,Stop Cycling (2 pages)
- * - <Congratulation/> : congratulation page / figma page names : congratulations
- * - <Resault/> : Resault page / figma page names : Finished Cycling
- */
 function Clubnavigator() {
   return (
     <ClubStack.Navigator headerMode="none" initialRouteName="Clubmap">
@@ -91,15 +123,6 @@ function Clubnavigator() {
   );
 }
 const Tab = createBottomTabNavigator();
-/**
- * Homenavigator
- * Home Tab Navigator
- * include :
- * - <Home/> : home page / figma page names : Home,Side Menu
- * - <Club/> : club page / figma page names : Club,Stories
- * - <Challenges/> : Challenges page / figma page names : Challenges
- * - <Today/> : Today page / figma page names : Today
- */
 function Homenavigator() {
   return (
     <Tab.Navigator
@@ -135,23 +158,13 @@ function Homenavigator() {
     </Tab.Navigator>
   );
 }
+
 const Stack = createStackNavigator();
 export default class App extends React.Component {
   state = {
     fontsLoaded: false, // is fonts loaded
   };
-  /**
-   * Font list
-   * - "Gilroy-Light"
-   * - "Gilroy-Lightitalic"
-   * - "Gilroy-ExtraBold"
-   * - "Gilroy-Bold"
-   * - "Gilroy-SemiBold"
-   * - "Gilroy-Regular"
-   * - "Gilroy-Black"
-   * - "Gilroy-Medium"
-   */
-  /* async load fonts after they are loaded set "fontsLoaded" state true */
+
   async loadFonts() {
     await Font.loadAsync({
       "Gilroy-Light": {
@@ -195,20 +208,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    /**
-     * if fonts are loaded show the page
-     * if not show react-native app loading until they are all loaded
-     */
     if (this.state.fontsLoaded) {
-      /**
-       * Main Navigator
-       * include :
-       * - Unboardingnavigator() : Club stack Navigator
-       * - Homenavigator() : Home Tab Navigator
-       * - Clubnavigator() : Club stack Navigator
-       * - <Workout/> : Workout page / figma page names : Workout(2 pages)
-       * - <Profile/> : Profile page / figma page names : My Profile,Profile - Others,Profile - Others - Stories
-       */
       return (
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <NavigationContainer theme={{ colors: { background: "#1A1735" } }}>
@@ -226,7 +226,11 @@ export default class App extends React.Component {
         </SafeAreaProvider>
       );
     } else {
-      return <AppLoading />;
+      return (
+        <React.Suspense fallback={<Text>Loading AppLoading ...</Text>}>
+          <AppLoading />
+        </React.Suspense>
+      );
     }
   }
 }
