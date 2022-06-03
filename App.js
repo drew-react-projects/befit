@@ -9,6 +9,7 @@ import {
   SafeAreaProvider,
 } from "react-native-safe-area-context";
 import { enableScreens } from "react-native-screens";
+2;
 
 const AppLoading = React.lazy(() => import("expo-app-loading"));
 const Challenges = React.lazy(() => import("./pages/Challenges"));
@@ -63,7 +64,7 @@ function Clubnavigator() {
 const Tab = createBottomTabNavigator();
 function Homenavigator() {
   return (
-    <React.Suspense fallback={<Text>Loading Clubnavigator ...</Text>}>
+    <React.Suspense fallback={<Text>Loading Homenavigator ...</Text>}>
       <Tab.Navigator
         initialRouteName="Home"
         headerMode="none"
