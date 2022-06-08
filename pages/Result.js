@@ -12,7 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
 import MapView, { PROVIDER_GOOGLE, Polyline, Marker } from "react-native-maps";
-import { Mapstyle } from "./../map/Mapstyle";
+import { Mapstyle } from "../map/Mapstyle";
 /**
  * Resultboxdatalist
  * @param title : title | type : string
@@ -34,7 +34,7 @@ const Resultboxdatalist = ({ title, value, unit }) => {
  * Resault
  * figma page names : Finished Cycling
  */
-export default class Resault extends React.Component {
+export default class Result extends React.Component {
   state = {
     route_coordinates: [
       //marker user route | type: array of object | example : [{latitude: 40.69718,longitude: -73.74559,}]

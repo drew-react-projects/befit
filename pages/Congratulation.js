@@ -1,16 +1,16 @@
-import React from "react";
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from "react";
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 /**
  * Congratulation
  * figma page names : congratulations
@@ -52,7 +52,7 @@ export default class Congratulation extends React.Component {
                 <TouchableOpacity
                   onPress={() => {
                     console.log("click");
-                    navigation.navigate("Clubnav", { screen: "Resault" }); // navigate to Resault page
+                    navigation.navigate("Clubnav", { screen: "Result" }); // navigate to Result page
                   }}
                   style={styles.share}
                 >

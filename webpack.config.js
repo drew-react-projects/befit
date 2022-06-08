@@ -129,6 +129,15 @@ module.exports = {
       }),
     ],
     chunkIds: "named",
+    splitChunks: {
+      chunks: "async",
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+        },
+      },
+    },
   },
   module: {
     /**
@@ -152,6 +161,12 @@ module.exports = {
           /node_modules(.*[/\\])+metro/,
           /node_modules(.*[/\\])+abort-controller/,
           /node_modules(.*[/\\])+@callstack\/repack/,
+          /node_modules(.*[/\\])+@react-native-masked-view\/masked-view/,
+          /node_modules(.*[/\\])+react-native-maps/,
+          /node_modules(.*[/\\])+react-native-snap-carousel/,
+          /node_modules(.*[/\\])+react-native-svg/,
+          /node_modules(.*[/\\])+svg-path-properties/,
+          /node_modules(.*[/\\])+toggle-switch-react-native/,
         ],
         use: "babel-loader",
       },
@@ -248,10 +263,27 @@ module.exports = {
     new ReactNative.OutputPlugin({
       platform,
       devServerEnabled: devServer.enabled,
-      localChunks: [/Async/],
+      localChunks: [
+        "page-01",
+        "page-02",
+        "page-03",
+        "page-04",
+        "page-05",
+        "page-06",
+        "page-07",
+        "page-08",
+        "page-09",
+        "page-10",
+        "page-11",
+        "page-12",
+        "page-13",
+        "page-14",
+        "page-15",
+        "page-16",
+        "vendors",
+      ],
       remoteChunksOutput: path.join(__dirname, "build", platform, "remote"),
     }),
-
     /**
      * Runs development server when running with React Native CLI start command or if `devServer`
      * was provided as s `fallback`.
